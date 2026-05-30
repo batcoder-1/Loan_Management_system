@@ -3,11 +3,13 @@ const mongoose = require('mongoose')
 const cors = require('cors')
 require('dotenv').config()
 const authroutes=require('./routes/authroutes')
+const loanRoutes=require('./routes/loanRoutes')
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 app.use('/auth',authroutes)
+app.use('/loans',loanRoutes)
 
 // test route
 app.get('/', (req, res) => {

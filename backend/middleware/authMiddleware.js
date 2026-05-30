@@ -11,8 +11,9 @@ const protect=(req,res,next)=>{
         next()
     }
     catch(err){
-        res.status(401).json    ({message:'Invalid token'})
+        res.status(401).json({message:'Invalid token'})
     }
+}
 
 const authorize=(...roles)=>{
     return (req,res,next)=>{
@@ -21,6 +22,5 @@ const authorize=(...roles)=>{
         }
         next()
     }
-}
 }
 module.exports={protect,authorize}

@@ -19,8 +19,8 @@ const signup=async (req,res) => {
         })
         res.status(201).json({message:'User created successfully',userID:user._id})
     }
-    catch{
-        res.status(500).json({message:error.message})
+    catch(err){
+        res.status(500).json({message:err.message})
     }
 }
 
@@ -39,12 +39,13 @@ const login=async (req,res)=>{
         const token=jwt.sign(
             { userID:user._id,role:user.role  },
             process.env.JWT_SECRET ,
-            {expiresIN:'7d'}
+            {expiresIn:'7d'}
     )
-    res.json({token,role:user,role,name:user.name})
+    res.json({token,role:user.role,name:user.name})
     }
-    catch{
-        res.status(500).json({message:error.message})
+    catch(err){
+        res.status(500).json({message:err.message})
     }
-    module.exports({signup,login})
 }
+
+module.exports = { signup, login }

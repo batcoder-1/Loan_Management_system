@@ -45,57 +45,79 @@ const Login = () => {
             setLoading(false)
         }
     }
+return (
+    <div className="login-container">
+        <div className="login-card">
 
-    return (
-        <div className="login-container">
-            <div className="login-card">
-                <h1>Loan Management System</h1>
-                <h2>Login</h2>
+            <div className="brand-section">
+                <div className="brand-icon">💰</div>
+                <h1>LoanFlow</h1>
+                <p className="subtitle">
+                    Securely manage loans, repayments and borrowers
+                </p>
+            </div>
 
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
-                        <input
-                            type="email"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                            placeholder="Enter your email"
-                        />
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        placeholder="john@example.com"
+                    />
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        placeholder="••••••••"
+                    />
+                </div>
+
+                {error && (
+                    <div className="error-message">
+                        {error}
                     </div>
+                )}
 
-                    <div className="form-group">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                            placeholder="Enter your password"
-                        />
-                    </div>
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className="login-btn"
+                >
+                    {loading ? "Signing In..." : "Sign In"}
+                </button>
+                <p style={{textAlign: 'center', marginTop: '10px'}}>
+                    Don't have an account? <a href="/signup">Sign Up</a>
+                </p>
+            </form>
 
-                    {error && <div className="error-message">{error}</div>}
+            <div className="test-credentials">
+                <h4>Demo Accounts</h4>
 
-                    <button 
-                        type="submit" 
-                        disabled={loading}
-                        className="login-btn"
-                    >
-                        {loading ? 'Logging in...' : 'Login'}
-                    </button>
-                </form>
+                <div className="credential-box">
+                    <p><strong>Borrower</strong></p>
+                    <p>borrower@lms.com</p>
+                    <p>borrower123</p>
+                </div>
 
-                <div className="test-credentials">
-                    <p><strong>Test Credentials:</strong></p>
-                    <p>Borrower: borrower@lms.com / borrower123</p>
-                    <p>Admin: admin@lms.com / admin123</p>
+                <div className="credential-box">
+                    <p><strong>Admin</strong></p>
+                    <p>admin@lms.com</p>
+                    <p>admin123</p>
                 </div>
             </div>
-        </div>
-    )
-}
 
+        </div>
+    </div>
+)
+}
 export default Login

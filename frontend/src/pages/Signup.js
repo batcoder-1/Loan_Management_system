@@ -9,12 +9,15 @@ const Signup = () => {
         password: '',
         role: 'borrower'
     })
+
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+
     const navigate = useNavigate()
 
     const handleChange = (e) => {
         const { name, value } = e.target
+
         setFormData(prev => ({
             ...prev,
             [name]: value
@@ -23,10 +26,10 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
         setError('')
         setLoading(true)
 
-        // Validation
         if (!formData.name.trim()) {
             setError('Name is required')
             setLoading(false)
@@ -46,22 +49,31 @@ const Signup = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/auth/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
+            const response = await fetch(
+                'http://localhost:5000/auth/signup',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                }
+            )
 
             const data = await response.json()
 
             if (!response.ok) {
-                throw new Error(data.message || 'Signup failed')
+                throw new Error(
+                    data.message || 'Signup failed'
+                )
             }
 
-            // Success - redirect to login
-            navigate('/login', { state: { message: 'Signup successful! Please login with your credentials.' } })
+            navigate('/login', {
+                state: {
+                    message:
+                        'Account created successfully. Please login.'
+                }
+            })
         } catch (err) {
             setError(err.message)
         } finally {
@@ -72,75 +84,109 @@ const Signup = () => {
     return (
         <div className="signup-container">
             <div className="signup-card">
-                <h1>Loan Management System</h1>
-                <h2>Create Account</h2>
+
+                <div className="brand-section">
+                    <div className="brand-icon">💳</div>
+
+                    <h1>LoanFlow</h1>
+
+                    <p className="subtitle">
+                        Create your borrower account and start managing loans efficiently
+                    </p>
+                </div>
 
                 <form onSubmit={handleSubmit}>
+
                     <div className="form-group">
-                        <label htmlFor="name">Full Name</label>
+                        <label htmlFor="name">
+                            Full Name
+                        </label>
+
                         <input
                             type="text"
                             id="name"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
+                            placeholder="John Doe"
                             required
-                            placeholder="Enter your full name"
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">
+                            Email Address
+                        </label>
+
                         <input
                             type="email"
                             id="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
+                            placeholder="john@example.com"
                             required
-                            placeholder="Enter your email"
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">
+                            Password
+                        </label>
+
                         <input
                             type="password"
                             id="password"
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
-                            required
                             placeholder="Minimum 6 characters"
+                            required
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="role">Role</label>
+                        <label htmlFor="role">
+                            Account Type
+                        </label>
+
                         <select
                             id="role"
                             name="role"
                             value={formData.role}
                             onChange={handleChange}
                         >
-                            <option value="borrower">Borrower</option>
+                            <option value="borrower">
+                                Borrower
+                            </option>
                         </select>
                     </div>
 
-                    {error && <div className="error-message">{error}</div>}
+                    {error && (
+                        <div className="error-message">
+                            {error}
+                        </div>
+                    )}
 
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         disabled={loading}
                         className="signup-btn"
                     >
-                        {loading ? 'Creating Account...' : 'Sign Up'}
+                        {loading
+                            ? 'Creating Account...'
+                            : 'Create Account'}
                     </button>
                 </form>
 
                 <div className="login-link">
-                    <p>Already have an account? <Link to="/login">Login here</Link></p>
+                    Already have an account?
+
+                    <Link to="/login">
+                        Sign In
+                    </Link>
                 </div>
+
             </div>
         </div>
     )

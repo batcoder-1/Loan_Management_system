@@ -1,25 +1,49 @@
 .dashboard-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding: 20px;
+    padding: 24px;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(99, 102, 241, 0.35),
+            transparent 35%),
+        radial-gradient(circle at bottom right,
+            rgba(139, 92, 246, 0.35),
+            transparent 35%),
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    font-family: "Inter", sans-serif;
 }
 
 .dashboard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     margin-bottom: 30px;
-    background: white;
-    padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+    padding: 28px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.1);
 }
 
 .dashboard-header h1 {
-    color: #333;
-    font-size: 28px;
-    margin: 0;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .header-info {
@@ -27,46 +51,52 @@
     align-items: center;
     gap: 15px;
 }
-
 .role-badge {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
+    background: rgba(99,102,241,0.2);
+
+    color: #c7d2fe;
+
+    border: 1px solid rgba(99,102,241,0.3);
+
+    padding: 10px 18px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+
     font-weight: 600;
 }
 
 .refresh-btn {
-    padding: 10px 20px;
-    background: #e0e0e0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
+    padding: 10px 18px;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 12px;
+
+    transition: all 0.3s ease;
 }
 
 .refresh-btn:hover {
-    background: #d0d0d0;
-}
-
-.refresh-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.25);
 }
 
 .logout-btn {
-    padding: 10px 20px;
-    background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s;
-}
+    padding: 10px 18px;
 
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
+}
 .logout-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(244, 67, 54, 0.3);
@@ -83,16 +113,27 @@
 }
 
 .card {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
+    background: rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 24px;
+
+    padding: 24px;
+
+    transition: all .3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px) scale(1.02);
+
+    border-color: rgba(99,102,241,0.5);
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.2),
+        0 0 30px rgba(99, 102, 241, 0.2);
 }
 
 .card-header {
@@ -101,14 +142,13 @@
     align-items: start;
     margin-bottom: 15px;
     padding-bottom: 15px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .card h3 {
-    margin: 0;
-    color: #333;
-    font-size: 16px;
+    color: white;
 }
+
 
 .status-badge {
     display: inline-block;
@@ -120,40 +160,47 @@
 }
 
 .status-badge.applied {
-    background: #fff3cd;
-    color: #856404;
+    background: rgba(245,158,11,0.15);
+    color: #fbbf24;
 }
 
 .status-badge.sanctioned {
-    background: #cfe2ff;
-    color: #084298;
+    background: rgba(59,130,246,0.15);
+    color: #60a5fa;
 }
 
 .status-badge.disbursed {
-    background: #d1e7dd;
-    color: #0f5132;
+    background: rgba(16,185,129,0.15);
+    color: #34d399;
+}
+
+.status-badge.rejected {
+    background: rgba(239,68,68,0.15);
+    color: #fecaca;
+}
+
+.status-badge.closed {
+    background: rgba(34,197,94,0.15);
+    color: #86efac;
 }
 
 .lead-card h3 {
-    color: #667eea;
-    margin-bottom: 15px;
-    font-size: 18px;
+    color: #a5b4fc;
 }
 
 .card-info {
     margin-bottom: 15px;
     line-height: 1.8;
 }
-
 .card-info p {
-    margin: 8px 0;
-    font-size: 14px;
-    color: #666;
+    color: rgba(255,255,255,0.75);
 }
+
 
 .card-info strong {
-    color: #333;
+    color: white;
 }
+
 
 .card-actions {
     display: flex;
@@ -173,7 +220,7 @@
 }
 
 .btn:hover:not(:disabled) {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -185,11 +232,13 @@
 .btn-approve {
     background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
     color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-reject {
     background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
     color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .btn-disburse {
@@ -215,9 +264,11 @@
     grid-column: 1 / -1;
     text-align: center;
     padding: 60px 20px;
-    background: white;
-    border-radius: 10px;
-    color: #999;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    color: rgba(255,255,255,0.65);
     font-size: 18px;
 }
 
@@ -229,13 +280,14 @@
 }
 
 .error-message {
-    background-color: #fee;
-    color: #c33;
-    padding: 15px;
-    border-radius: 5px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #fecaca;
+    padding: 12px;
+    border-radius: 12px;
     margin-bottom: 20px;
     font-size: 14px;
-    border-left: 4px solid #c33;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-left: 4px solid #ef4444;
 }
 
 /* Modal Styles */
@@ -254,11 +306,15 @@
 }
 
 .modal {
-    background: white;
-    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     animation: slideUp 0.3s ease-out;
 }
 
@@ -278,12 +334,12 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px;
-    border-bottom: 2px solid #f0f0f0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .modal-header h2 {
     margin: 0;
-    color: #333;
+    color: white;
     font-size: 22px;
 }
 
@@ -292,12 +348,12 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: #999;
+    color: rgba(255,255,255,0.65);
     transition: color 0.2s;
 }
 
 .close-btn:hover {
-    color: #333;
+    color: white;
 }
 
 .modal-body {
@@ -311,7 +367,7 @@
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #333;
+    color: rgba(255,255,255,0.85);
     font-weight: 600;
     font-size: 14px;
 }
@@ -320,19 +376,27 @@
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border-radius: 12px;
     font-size: 14px;
     font-family: inherit;
     box-sizing: border-box;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255,255,255,0.45);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+    border-color: #818cf8;
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 4px rgba(129, 140, 248, 0.15);
 }
 
 .form-group textarea {
@@ -341,7 +405,7 @@
 }
 
 .confirmation-text {
-    color: #666;
+    color: rgba(255,255,255,0.85);
     font-size: 16px;
     line-height: 1.6;
     margin: 0;
@@ -351,7 +415,7 @@
     display: flex;
     gap: 10px;
     padding: 25px;
-    border-top: 2px solid #f0f0f0;
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .modal-footer .btn {

@@ -1,6 +1,9 @@
 .myloans-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background:
+        radial-gradient(circle at top left, rgba(102, 126, 234, 0.4), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(118, 75, 162, 0.4), transparent 35%),
+        linear-gradient(135deg, #0f172a, #1e293b);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
 }
@@ -10,35 +13,40 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
-    background: white;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
     padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     flex-wrap: wrap;
     gap: 15px;
 }
 
 .myloans-header h1 {
-    color: #333;
+    color: white;
     font-size: 28px;
     margin: 0;
+    text-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 .apply-btn {
     padding: 12px 24px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 14px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .apply-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4), 0 0 20px rgba(99, 102, 241, 0.3);
 }
 
 .loans-grid {
@@ -49,18 +57,21 @@
 }
 
 .loan-card {
-    background: white;
-    border-radius: 10px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     transition: all 0.3s;
     display: flex;
     flex-direction: column;
 }
 
 .loan-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(99,102,241,0.5);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2), 0 0 30px rgba(99, 102, 241, 0.2);
 }
 
 .card-header {
@@ -68,8 +79,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: linear-gradient(135deg, #f5f7fa 0%, #f0f0f0 100%);
-    border-bottom: 2px solid #e0e0e0;
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .loan-id {
@@ -80,7 +91,7 @@
 
 .loan-id .label {
     font-size: 12px;
-    color: #999;
+    color: rgba(255,255,255,0.65);
     font-weight: 600;
     text-transform: uppercase;
 }
@@ -88,7 +99,7 @@
 .loan-id .value {
     font-size: 18px;
     font-weight: bold;
-    color: #333;
+    color: white;
     font-family: 'Courier New', monospace;
 }
 
@@ -105,33 +116,33 @@
 }
 
 .status-badge.badge-applied {
-    background: #fff3cd;
-    color: #856404;
+    background: rgba(245,158,11,0.15);
+    color: #fbbf24;
 }
 
 .status-badge.badge-sanctioned {
-    background: #cfe2ff;
-    color: #084298;
+    background: rgba(59,130,246,0.15);
+    color: #60a5fa;
 }
 
 .status-badge.badge-rejected {
-    background: #f8d7da;
-    color: #842029;
+    background: rgba(239,68,68,0.15);
+    color: #fecaca;
 }
 
 .status-badge.badge-disbursed {
-    background: #d1e7dd;
-    color: #0f5132;
+    background: rgba(16,185,129,0.15);
+    color: #34d399;
 }
 
 .status-badge.badge-closed {
-    background: #d1e7dd;
-    color: #0f5132;
+    background: rgba(34,197,94,0.15);
+    color: #86efac;
 }
 
 .status-badge.badge-default {
-    background: #e0e0e0;
-    color: #666;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.75);
 }
 
 .card-body {
@@ -144,7 +155,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .info-row:last-child {
@@ -152,41 +163,41 @@
 }
 
 .info-row .label {
-    color: #666;
+    color: rgba(255,255,255,0.65);
     font-size: 14px;
     font-weight: 500;
 }
 
 .info-row .value {
-    color: #333;
+    color: white;
     font-weight: 600;
     font-size: 15px;
 }
 
 .info-row .value.amount {
-    color: #667eea;
+    color: #818cf8;
     font-size: 18px;
     font-weight: bold;
 }
 
 .info-row .value.paid {
-    color: #4caf50;
+    color: #34d399;
     font-weight: bold;
 }
 
 .info-row .value.outstanding {
-    color: #f44336;
+    color: #fecaca;
     font-weight: bold;
 }
 
 .payments-section {
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 2px solid #f0f0f0;
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .payments-section h4 {
-    color: #333;
+    color: rgba(255,255,255,0.85);
     font-size: 14px;
     margin: 0 0 15px 0;
     text-transform: uppercase;
@@ -204,9 +215,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background: #f9f9f9;
-    border-left: 3px solid #667eea;
-    border-radius: 3px;
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid #818cf8;
+    border-radius: 8px;
 }
 
 .payment-info {
@@ -218,32 +229,33 @@
 .payment-utr {
     font-size: 12px;
     font-family: 'Courier New', monospace;
-    color: #666;
+    color: rgba(255,255,255,0.65);
     font-weight: 500;
 }
 
 .payment-date {
     font-size: 12px;
-    color: #999;
+    color: rgba(255,255,255,0.55);
 }
 
 .payment-amount {
     font-weight: bold;
-    color: #4caf50;
+    color: #34d399;
     font-size: 14px;
 }
 
 .rejection-reason {
     margin-top: 15px;
-    padding: 15px;
-    background: #fee;
-    border-left: 4px solid #f44336;
-    border-radius: 5px;
+    padding: 12px;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-left: 4px solid #ef4444;
+    border-radius: 12px;
 }
 
 .rejection-reason .label {
     display: block;
-    color: #c33;
+    color: #fecaca;
     font-weight: 600;
     font-size: 12px;
     margin-bottom: 8px;
@@ -252,7 +264,7 @@
 
 .reason-text {
     margin: 0;
-    color: #c33;
+    color: #fecaca;
     font-size: 14px;
     line-height: 1.6;
 }
@@ -263,9 +275,9 @@
     align-items: center;
     padding: 12px 0;
     padding-top: 15px;
-    border-top: 1px solid #f0f0f0;
+    border-top: 1px solid rgba(255,255,255,0.08);
     font-size: 13px;
-    color: #999;
+    color: rgba(255,255,255,0.65);
 }
 
 .apply-date .label {
@@ -278,49 +290,51 @@
 
 .card-footer {
     padding: 15px 20px;
-    background: #f9f9f9;
-    border-top: 1px solid #e0e0e0;
+    background: transparent;
+    border-top: 1px solid rgba(255,255,255,0.08);
 }
 
 .status-summary {
     font-size: 13px;
     font-weight: 500;
     padding: 8px 12px;
-    border-radius: 5px;
+    border-radius: 12px;
     text-align: center;
 }
 
 .status-summary.applied {
-    background: #fff3cd;
-    color: #856404;
+    background: rgba(245,158,11,0.15);
+    color: #fbbf24;
 }
 
 .status-summary.sanctioned {
-    background: #cfe2ff;
-    color: #084298;
+    background: rgba(59,130,246,0.15);
+    color: #60a5fa;
 }
 
 .status-summary.rejected {
-    background: #f8d7da;
-    color: #842029;
+    background: rgba(239,68,68,0.15);
+    color: #fecaca;
 }
 
 .status-summary.disbursed {
-    background: #d1e7dd;
-    color: #0f5132;
+    background: rgba(16,185,129,0.15);
+    color: #34d399;
 }
 
 .status-summary.closed {
-    background: #d1e7dd;
-    color: #0f5132;
+    background: rgba(34,197,94,0.15);
+    color: #86efac;
 }
 
 .empty-state {
-    background: white;
-    border-radius: 10px;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
     padding: 60px 40px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
 }
 
@@ -330,36 +344,39 @@
 }
 
 .empty-state h2 {
-    color: #333;
+    color: white;
     font-size: 28px;
     margin: 0 0 15px 0;
 }
 
 .empty-state p {
-    color: #666;
+    color: rgba(255,255,255,0.75);
     font-size: 16px;
     margin: 0 0 25px 0;
     line-height: 1.6;
 }
 
 .loading {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
     color: white;
     padding: 40px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 18px;
     font-weight: 500;
 }
 
 .error-message {
-    background-color: #fee;
-    color: #c33;
-    padding: 15px;
-    border-radius: 5px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #fecaca;
+    padding: 12px;
+    border-radius: 12px;
     margin-bottom: 20px;
     font-size: 14px;
-    border-left: 4px solid #c33;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-left: 4px solid #ef4444;
 }
 
 .footer-actions {
@@ -369,35 +386,38 @@
     margin-top: 30px;
 }
 
-.refresh-btn,
-.logout-btn {
+.refresh-btn {
+    background: rgba(255,255,255,0.08);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
     padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
-}
-
-.refresh-btn {
-    background: white;
-    color: #333;
+    transition: all 0.3s ease;
 }
 
 .refresh-btn:hover {
-    background: #f0f0f0;
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.25);
 }
 
 .logout-btn {
-    background: #f44336;
+    background: linear-gradient(135deg, #f44336, #d32f2f);
     color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .logout-btn:hover {
-    background: #d32f2f;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(244, 67, 54, 0.4);
 }
 
 @media (max-width: 768px) {

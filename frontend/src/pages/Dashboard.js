@@ -43,6 +43,9 @@ const Dashboard = () => {
             let endpoint = ''
 
             switch (userRole) {
+                case 'admin':
+                    endpoint = 'http://localhost:5000/admin/leads'
+                    break
                 case 'sales':
                     endpoint = 'http://localhost:5000/admin/leads'
                     break
@@ -197,6 +200,7 @@ const Dashboard = () => {
 
     const getRoleTitle = () => {
         const titles = {
+            admin: 'Admin Dashboard - All Leads',
             sales: 'Sales Module - Leads',
             sanction: 'Sanction Module - Approve/Reject Loans',
             disbursement: 'Disbursement Module - Disburse Sanctioned Loans',
@@ -244,7 +248,7 @@ const Dashboard = () => {
             {error && <div className="error-message">{error}</div>}
 
             {/* SALES MODULE - Leads */}
-            {role === 'sales' && (
+            {(role === 'sales' || role === 'admin') && (
                 <div className="module-content">
                     <div className="data-grid">
                         {data.length === 0 ? (

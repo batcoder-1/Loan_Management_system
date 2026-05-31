@@ -1,78 +1,129 @@
 .login-container {
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 24px;
+
+    background:
+        radial-gradient(circle at top left, rgba(102, 126, 234, 0.4), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(118, 75, 162, 0.4), transparent 35%),
+        linear-gradient(135deg, #0f172a, #1e293b);
+
+    font-family: "Inter", "Segoe UI", sans-serif;
 }
 
 .login-card {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 400px;
+    max-width: 430px;
+
+    padding: 40px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    color: white;
 }
 
 .login-card h1 {
-    color: #667eea;
-    font-size: 24px;
-    margin-bottom: 10px;
     text-align: center;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
 }
 
 .login-card h2 {
-    color: #333;
-    font-size: 20px;
-    margin-bottom: 30px;
     text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 32px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    color: #333;
+    font-size: 0.9rem;
     font-weight: 500;
+    color: rgba(255,255,255,0.85);
 }
 
 .form-group input {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: border-color 0.3s;
     box-sizing: border-box;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.15);
+
+    background: rgba(255,255,255,0.08);
+    color: white;
+
+    font-size: 0.95rem;
+
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(255,255,255,0.45);
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+
+    border-color: #818cf8;
+
+    background: rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 0 0 4px rgba(129, 140, 248, 0.15);
 }
 
 .login-btn {
     width: 100%;
-    padding: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+
+    padding: 14px;
+
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #6366f1,
+        #8b5cf6
+    );
+
+    color: white;
+
+    font-size: 1rem;
     font-weight: 600;
+
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+
+    transition: all 0.3s ease;
 }
 
 .login-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    transform: translateY(-3px) scale(1.02);
+
+    box-shadow:
+        0 12px 25px rgba(99, 102, 241, 0.4),
+        0 0 20px rgba(99, 102, 241, 0.3);
 }
 
 .login-btn:disabled {
@@ -81,28 +132,29 @@
 }
 
 .error-message {
-    background-color: #fee;
-    color: #c33;
+    background: rgba(239, 68, 68, 0.15);
+
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-left: 4px solid #ef4444;
+
+    color: #fecaca;
+
     padding: 12px;
-    border-radius: 5px;
+    border-radius: 12px;
+
     margin-bottom: 20px;
-    font-size: 14px;
-    border-left: 4px solid #c33;
 }
 
 .test-credentials {
-    margin-top: 30px;
+    margin-top: 28px;
     padding-top: 20px;
-    border-top: 1px solid #ddd;
-    font-size: 13px;
-    color: #666;
-}
 
-.test-credentials p {
-    margin: 5px 0;
-    line-height: 1.6;
+    border-top: 1px solid rgba(255,255,255,0.12);
+
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
 }
 
 .test-credentials strong {
-    color: #333;
+    color: #ffffff;
 }

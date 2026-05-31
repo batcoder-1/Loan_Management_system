@@ -29,19 +29,19 @@ const login=async (req,res)=>{
         const {email,password}=req.body
         const user=await User.findOne({email})
         if(!user){
-            res.status(404).json({message:'user not found'})
+            return res.status(404).json({message:'user not found'})
         }
 
         const ismatch=await bcrypt.compare(password,user.password)
         if(!ismatch){
-            res.status(400).json({message:'wrong password'})
+            return res.status(400).json({message:'wrong password'})
         }
         const token=jwt.sign(
             { userID:user._id,role:user.role  },
-            process.env.JWT_SECRET ,
+            process.env.JWT_SECRET,
             {expiresIn:'7d'}
-    )
-    res.json({token,role:user.role,name:user.name})
+        )
+        res.json({token,role:user.role,name:user.name})
     }
     catch(err){
         res.status(500).json({message:err.message})

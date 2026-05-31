@@ -4,7 +4,8 @@ const paymentSchema=new mongoose.Schema({
     utrNumber:{
         type:String,
         required:true,
-        unique:true
+        unique:true,
+        sparse:true
     },
     amount:{
         type:Number,
@@ -47,4 +48,12 @@ const loanSchema=new mongoose.Schema({
      payments: [paymentSchema],
     amountPaid: { type: Number, default: 0 }
 }, {timestamps:true})
-module.exports=mongoose.model('Loan',loanSchema) 
+
+const Loan=mongoose.model('Loan',loanSchema)
+
+// Drop old unique index if it exists (non-sparse version)
+Loan.collection.dropIndex('payments.utrNumber_1').catch(() => {
+    // Index doesn't exist, which is fine
+})
+
+module.exports=Loan 

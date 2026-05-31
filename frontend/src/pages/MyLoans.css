@@ -1,0 +1,474 @@
+.myloans-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+}
+
+.myloans-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    background: white;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.myloans-header h1 {
+    color: #333;
+    font-size: 28px;
+    margin: 0;
+}
+
+.apply-btn {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.apply-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.loans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.loan-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.loan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #f0f0f0 100%);
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.loan-id {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.loan-id .label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.loan-id .value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Courier New', monospace;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.status-badge.badge-applied {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.badge-sanctioned {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-badge.badge-rejected {
+    background: #f8d7da;
+    color: #842029;
+}
+
+.status-badge.badge-disbursed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-badge.badge-closed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-badge.badge-default {
+    background: #e0e0e0;
+    color: #666;
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row .label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.info-row .value {
+    color: #333;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.info-row .value.amount {
+    color: #667eea;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.info-row .value.paid {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.info-row .value.outstanding {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.payments-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #f0f0f0;
+}
+
+.payments-section h4 {
+    color: #333;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.payments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f9f9f9;
+    border-left: 3px solid #667eea;
+    border-radius: 3px;
+}
+
+.payment-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.payment-utr {
+    font-size: 12px;
+    font-family: 'Courier New', monospace;
+    color: #666;
+    font-weight: 500;
+}
+
+.payment-date {
+    font-size: 12px;
+    color: #999;
+}
+
+.payment-amount {
+    font-weight: bold;
+    color: #4caf50;
+    font-size: 14px;
+}
+
+.rejection-reason {
+    margin-top: 15px;
+    padding: 15px;
+    background: #fee;
+    border-left: 4px solid #f44336;
+    border-radius: 5px;
+}
+
+.rejection-reason .label {
+    display: block;
+    color: #c33;
+    font-weight: 600;
+    font-size: 12px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.reason-text {
+    margin: 0;
+    color: #c33;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.apply-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 13px;
+    color: #999;
+}
+
+.apply-date .label {
+    font-weight: 500;
+}
+
+.apply-date .value {
+    font-weight: 600;
+}
+
+.card-footer {
+    padding: 15px 20px;
+    background: #f9f9f9;
+    border-top: 1px solid #e0e0e0;
+}
+
+.status-summary {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.status-summary.applied {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-summary.sanctioned {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-summary.rejected {
+    background: #f8d7da;
+    color: #842029;
+}
+
+.status-summary.disbursed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-summary.closed {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.empty-state {
+    background: white;
+    border-radius: 10px;
+    padding: 60px 40px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.empty-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.empty-state h2 {
+    color: #333;
+    font-size: 28px;
+    margin: 0 0 15px 0;
+}
+
+.empty-state p {
+    color: #666;
+    font-size: 16px;
+    margin: 0 0 25px 0;
+    line-height: 1.6;
+}
+
+.loading {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.error-message {
+    background-color: #fee;
+    color: #c33;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-left: 4px solid #c33;
+}
+
+.footer-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.refresh-btn,
+.logout-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.refresh-btn {
+    background: white;
+    color: #333;
+}
+
+.refresh-btn:hover {
+    background: #f0f0f0;
+}
+
+.logout-btn {
+    background: #f44336;
+    color: white;
+}
+
+.logout-btn:hover {
+    background: #d32f2f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+}
+
+@media (max-width: 768px) {
+    .myloans-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .myloans-header h1 {
+        width: 100%;
+        font-size: 24px;
+    }
+
+    .loans-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .status-badge {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .myloans-container {
+        padding: 15px;
+    }
+
+    .myloans-header {
+        padding: 15px;
+    }
+
+    .myloans-header h1 {
+        font-size: 20px;
+    }
+
+    .apply-btn {
+        width: 100%;
+    }
+
+    .card-header {
+        padding: 15px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .info-row {
+        padding: 10px 0;
+    }
+
+    .empty-state {
+        padding: 40px 20px;
+    }
+
+    .empty-state h2 {
+        font-size: 22px;
+    }
+
+    .footer-actions {
+        flex-direction: column;
+    }
+
+    .refresh-btn,
+    .logout-btn {
+        width: 100%;
+    }
+}

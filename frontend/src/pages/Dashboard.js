@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './Dashboard.css'
@@ -33,9 +33,9 @@ const Dashboard = () => {
     useEffect(() => {
         setRole(userRole)
         fetchData()
-    }, [userRole])
+    }, [userRole, fetchData])
 
-    const fetchData = async () => {
+    const fetchData = useCallback(async () => {
         setLoading(true)
         setError('')
 
@@ -74,7 +74,7 @@ const Dashboard = () => {
         } finally {
             setLoading(false)
         }
-    }
+    }, [userRole, token])
 
     const handleApprove = (loanId) => {
         setApprovalForm({

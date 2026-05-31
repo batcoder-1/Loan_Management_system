@@ -18,12 +18,11 @@ app.get('/', (req, res) => {
     res.json({ message: 'Server is running' })
 })
 
-// Error handling middleware for multer and other errors
 app.use((err, req, res, next) => {
     console.error('Error:', err)
     if (err.name === 'MulterError') {
         return res.status(400).json({ message: `File upload error: ${err.message}` })
-    }
+    }   
     if (err.message) {
         return res.status(500).json({ message: err.message })
     }

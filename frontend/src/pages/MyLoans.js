@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import './MyLoans.css'
@@ -12,9 +12,9 @@ const MyLoans = () => {
 
     useEffect(() => {
         fetchMyLoans()
-    }, [])
+    }, [fetchMyLoans])
 
-    const fetchMyLoans = async () => {
+    const fetchMyLoans = useCallback(async () => {
         setLoading(true)
         setError('')
 
@@ -34,7 +34,7 @@ const MyLoans = () => {
         } finally {
             setLoading(false)
         }
-    }
+    }, [token])
 
     const getStatusBadgeClass = (status) => {
         switch (status) {

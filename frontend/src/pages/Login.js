@@ -114,6 +114,30 @@ return (
                     <p>admin@lms.com</p>
                     <p>admin123</p>
                 </div>
+
+                <div className="credential-box">
+                    <p><strong>Sales</strong></p>
+                    <p>sales@lms.com</p>
+                    <p>sales123</p>
+                </div>
+
+                <div className="credential-box">
+                    <p><strong>Sanction</strong></p>
+                    <p>sanction@lms.com</p>
+                    <p>sanction123</p>
+                </div>
+
+                <div className="credential-box">
+                    <p><strong>Disbursement</strong></p>
+                    <p>disbursement@lms.com</p>
+                    <p>disbursement123</p>
+                </div>
+
+                <div className="credential-box">
+                    <p><strong>Collection</strong></p>
+                    <p>collection@lms.com</p>
+                    <p>collection123</p>
+                </div>
             </div>
 
         </div>

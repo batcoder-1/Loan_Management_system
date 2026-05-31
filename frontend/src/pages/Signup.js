@@ -187,6 +187,16 @@ const Signup = () => {
                     </Link>
                 </div>
 
+                <div className="test-credentials">
+                    <h4>Demo Borrower Accounts</h4>
+
+                    <div className="credential-box">
+                        <p><strong>Borrower</strong></p>
+                        <p>borrower@lms.com</p>
+                        <p>borrower123</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     )

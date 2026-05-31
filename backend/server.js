@@ -7,7 +7,18 @@ const loanRoutes=require('./routes/loanRoutes')
 const adminRoutes=require('./routes/adminRoutes')
 const app = express()
 
-app.use(cors())
+// CORS configuration - allow requests from Vercel frontend
+const corsOptions = {
+    origin: [
+        'http://localhost:3000',
+        'http://localhost:5000',
+        'https://loan-management-system-qoji1ahqm-naman-dadhich-s-projects.vercel.app'
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 app.use('/uploads', express.static('uploads'))
 app.use('/auth',authroutes)

@@ -105,7 +105,7 @@ const Apply = () => {
             console.log('Step 1: Submitting personal details...')
             // Step 1: Submit personal details
             const step1Response = await axios.post(
-                'http://localhost:5000/loans/personal-details',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/loans/personal-details`,
                 {
                     fullName: formData.fullName,
                     pan: formData.pan,
@@ -130,7 +130,7 @@ const Apply = () => {
             formDataUpload.append('loanId', loanId)
 
             await axios.post(
-                'http://localhost:5000/loans/upload-salary-slip',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/loans/upload-salary-slip`,
                 formDataUpload,
                 {
                     headers: {
@@ -144,7 +144,7 @@ const Apply = () => {
             console.log('Step 3: Configuring loan...')
             // Step 3 & 4: Submit loan configuration (amount, tenure, PI etc)
             await axios.post(
-                'http://localhost:5000/loans/configure',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/loans/configure`,
                 {
                     loanId: loanId,
                     loanAmount: formData.loanAmount,

@@ -42,16 +42,13 @@ const Dashboard = () => {
                     endpoint = 'http://localhost:5000/admin/leads'
                     break
                 case 'sales':
-                    endpoint = 'http://localhost:5000/admin/leads'
-                    break
-                case 'sanction':
-                    endpoint = 'http://localhost:5000/admin/applied-loans'
+                    endpoint = `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/leads`
                     break
                 case 'disbursement':
-                    endpoint = 'http://localhost:5000/admin/sanctioned-loans'
+                    endpoint = `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/sanctioned-loans`
                     break
                 case 'collection':
-                    endpoint = 'http://localhost:5000/admin/disbursed-loans'
+                    endpoint = `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/disbursed-loans`
                     break
                 default:
                     throw new Error('Invalid role')
@@ -108,7 +105,7 @@ const Dashboard = () => {
 
         try {
             await axios.post(
-                'http://localhost:5000/admin/sanction',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/sanction`,
                 {
                     loanId: approvalForm.loanId,
                     action: approvalForm.action,
@@ -136,7 +133,7 @@ const Dashboard = () => {
 
         try {
             await axios.post(
-                'http://localhost:5000/admin/disburse',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/disburse`,
                 { loanId },
                 {
                     headers: {
@@ -176,7 +173,7 @@ const Dashboard = () => {
 
         try {
             await axios.post(
-                'http://localhost:5000/admin/payment',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/payment`,
                 {
                     loanId: paymentForm.loanId,
                     utrNumber: paymentForm.utrNumber,

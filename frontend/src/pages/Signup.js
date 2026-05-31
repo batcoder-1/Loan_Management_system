@@ -50,7 +50,7 @@ const Signup = () => {
 
         try {
             const response = await fetch(
-                'http://localhost:5000/auth/signup',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/auth/signup`,
                 {
                     method: 'POST',
                     headers: {

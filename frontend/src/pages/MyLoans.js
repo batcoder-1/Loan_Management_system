@@ -16,7 +16,7 @@ const MyLoans = () => {
 
         try {
             const response = await axios.get(
-                'http://localhost:5000/loans/my-loans',
+                `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/loans/my-loans`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

@@ -30,11 +30,6 @@ const Dashboard = () => {
         date: new Date().toISOString().split('T')[0]
     })
 
-    useEffect(() => {
-        setRole(userRole)
-        fetchData()
-    }, [userRole, fetchData])
-
     const fetchData = useCallback(async () => {
         setLoading(true)
         setError('')
@@ -75,6 +70,13 @@ const Dashboard = () => {
             setLoading(false)
         }
     }, [userRole, token])
+
+    useEffect(() => {
+        setRole(userRole)
+        if (userRole) {
+            fetchData()
+        }
+    }, [userRole, fetchData])
 
     const handleApprove = (loanId) => {
         setApprovalForm({

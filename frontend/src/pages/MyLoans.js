@@ -10,10 +10,6 @@ const MyLoans = () => {
     const navigate = useNavigate()
     const token = localStorage.getItem('token')
 
-    useEffect(() => {
-        fetchMyLoans()
-    }, [fetchMyLoans])
-
     const fetchMyLoans = useCallback(async () => {
         setLoading(true)
         setError('')
@@ -35,6 +31,10 @@ const MyLoans = () => {
             setLoading(false)
         }
     }, [token])
+
+    useEffect(() => {
+        fetchMyLoans()
+    }, [fetchMyLoans])
 
     const getStatusBadgeClass = (status) => {
         switch (status) {

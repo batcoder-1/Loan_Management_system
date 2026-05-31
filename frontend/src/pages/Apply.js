@@ -166,7 +166,14 @@ const Apply = () => {
             }, 2000)
         } catch (err) {
             console.error('Error:', err)
-            const errorMsg = err.response?.data?.message || err.message || 'Error submitting application'
+            const errorData = err.response?.data
+            let errorMsg = errorData?.message || err.message || 'Error submitting application'
+            
+            // Display detailed BRE errors if they exist
+            if (errorData?.errors && Array.isArray(errorData.errors)) {
+                errorMsg = errorData.errors.join(', ')
+            }
+            
             setError(errorMsg)
             console.error('Full error:', errorMsg)
         } finally {

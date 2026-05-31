@@ -41,6 +41,12 @@ The platform includes:
 
 ---
 
+## 🎬 Demo
+
+**[View Live Demo](https://drive.google.com/file/d/1O4p308M_LOxo_R4T7bgQOLRLxQzKPISn/view?usp=sharing)**
+
+---
+
 ## ✨ Features
 
 ### For Borrowers

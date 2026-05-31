@@ -39,10 +39,13 @@ const Dashboard = () => {
 
             switch (userRole) {
                 case 'admin':
-                    endpoint = 'http://localhost:5000/admin/leads'
+                    endpoint = `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/leads`
                     break
                 case 'sales':
                     endpoint = `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/leads`
+                    break
+                case 'sanction':
+                    endpoint = `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/applied-loans`
                     break
                 case 'disbursement':
                     endpoint = `${process.env.REACT_APP_API_URL || 'http://localhost:5000'}/admin/sanctioned-loans`
